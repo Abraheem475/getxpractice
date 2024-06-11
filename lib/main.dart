@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:translation_practice/home_screen.dart';
 import 'package:translation_practice/language.dart';
+import 'package:translation_practice/login_ui.dart';
 import 'package:translation_practice/pick_image_UI.dart';
 import 'package:translation_practice/switch_button.dart';
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: PickImageUi(),
+      home: LoginUi(),
     );
   }
 }
