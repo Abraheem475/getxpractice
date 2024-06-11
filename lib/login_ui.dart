@@ -34,17 +34,17 @@ class _LoginUiState extends State<LoginUi> {
               decoration: const InputDecoration(
                 hintText: "Password")),
             const SizedBox(height: 40.0,),
-            InkWell(
+            Obx(() => InkWell(
               onTap: (){
                 controller.LoginApi();
               },
-              child: Container(
+              child: controller.loading.value ? CircularProgressIndicator() : Container(
                 width: Get.width,
                 height: 50.0,
                 color: Colors.grey,
                 child: Center(child: Text("LogIn",style: TextStyle(color: Colors.white),)),
               ),
-            )
+            ))
           ],
         ),
       ),

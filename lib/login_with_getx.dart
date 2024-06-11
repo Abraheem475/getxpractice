@@ -10,6 +10,8 @@ class LoginWithGetx extends GetxController{
   RxBool loading = false.obs;
 
   void LoginApi() async{
+    loading.value = true;
+
     
     try{
       final response = await post(Uri.parse('https://reqres.in/api/login'),
@@ -20,12 +22,15 @@ class LoginWithGetx extends GetxController{
       var data = jsonDecode(response.body);
 
       if(response.statusCode == 200){
+        loading.value = false;
         Get.snackbar('Login Successful', "Congratulations");
       }else{
+        loading.value = false;
         Get.snackbar('Login Failed', data['error']);
       }
 
     }catch(e){
+      loading.value = false;
       Get.snackbar("Exception", e.toString());
     }
 
